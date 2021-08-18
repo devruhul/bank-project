@@ -1,11 +1,21 @@
 
-// add event handler deposit button
-document.getElementById('deposit-button').addEventListener('click', function(){
-    // get input
-    const depositInput = document.getElementById('deposit-input');
+function getInputValue(input) {
+    const depositInput = document.getElementById(input);
     const depositText = depositInput.value;
     const newDepositAmount = parseFloat(depositText);
-    
+     // clear 
+     depositInput.value = '';
+     return newDepositAmount;
+}
+
+
+// add event handler deposit button
+document.getElementById('deposit-button').addEventListener('click', function(){
+    // // get input
+    // const depositInput = document.getElementById('deposit-input');
+    // const depositText = depositInput.value;
+    // const newDepositAmount = parseFloat(depositText);
+    const newDepositAmount= getInputValue('deposit-input');
     // get deposit
     const depositAdd = document.getElementById('deposit-add');
     const depositGetText = depositAdd.innerText;
@@ -18,10 +28,9 @@ document.getElementById('deposit-button').addEventListener('click', function(){
     const balanceText = parseFloat(balanceGetText);
     const newBalanceTotal = balanceText + newDepositAmount;
     balanceAdd.innerText = newBalanceTotal;
-
-     // clear value
-     depositInput.value = '';
-
+    // // clear 
+    // depositInput.value = '';
+   
 });
 
     // add event handler withdraw button
@@ -30,7 +39,6 @@ document.getElementById('withdraw-button').addEventListener('click', function(){
     const withdrawInput = document.getElementById('withdraw-input');
     const withdrawText = withdrawInput.value;
     const newWithdrawAmount = parseFloat(withdrawText);
-
     // get withdraw
     const withdrawAdd = document.getElementById('withdraw-add');
     const withrawGetText = withdrawAdd.innerText;
